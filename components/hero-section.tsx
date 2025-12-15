@@ -78,7 +78,17 @@ export function HeroSection() {
 
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-in fade-in slide-in-from-bottom-4 duration-500 delay-400">
-                            <Button size="lg" className="gap-2 group">
+                            <Button
+                                size="lg"
+                                className="gap-2 group"
+                                onClick={() => {
+                                    document
+                                        .getElementById("contact")
+                                        ?.scrollIntoView({
+                                            behavior: "smooth",
+                                        });
+                                }}
+                            >
                                 <Mail className="w-4 h-4 group-hover:animate-bounce" />
                                 Contact Me
                             </Button>

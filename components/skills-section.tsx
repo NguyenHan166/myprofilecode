@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 
 const hardSkills = [
     { name: "Node.js", level: 85 },
-    { name: "React / Next.js", level: 80 },
-    { name: "TypeScript", level: 80 },
-    { name: "GraphQL", level: 80 },
+    { name: "NestJS / Springboot", level: 75 },
+    { name: "React", level: 75 },
+    { name: "TypeScript", level: 75 },
     { name: "PostgreSQL", level: 75 },
 ];
 
@@ -136,7 +136,7 @@ export function SkillsSection() {
                             </h5>
                             <div className="grid grid-cols-2 gap-4">
                                 {[
-                                    { label: "Frontend", value: 80 },
+                                    { label: "Frontend", value: 75 },
                                     { label: "Backend", value: 85 },
                                     { label: "Design", value: 60 },
                                     { label: "DevOps", value: 70 },

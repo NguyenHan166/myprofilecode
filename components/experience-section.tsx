@@ -9,7 +9,7 @@ const experiences = [
     {
         company: "Công ty TNHH Tạ Thanh An Group",
         role: "Fullstack Engineer",
-        period: "2025 - Present",
+        period: "05/2025 - 12/2025",
         description:
             "Participate in developing and publishing anti-phishing tools with more than 10,000 users. Participate in CRM development for companies and commercial versions",
         skills: ["React", "TypeScript", "NodeJS", "GraphQL"],
@@ -18,7 +18,7 @@ const experiences = [
     {
         company: "FPT Software",
         role: "Full Stack Developer",
-        period: "2024 - 2025",
+        period: "04/2024 - 07/2024",
         description: "Lead backend development for intern-level applications. ",
         skills: ["Springboot", "Node.js", "PostgreSQL", "AWS"],
         link: "https://startupxyz.example.com",

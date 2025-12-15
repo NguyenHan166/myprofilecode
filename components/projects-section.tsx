@@ -36,33 +36,33 @@ const projects = [
         demo: "https://github.com/NguyenHan166/healthcare-django",
         github: "https://github.com/NguyenHan166/healthcare-django",
     },
-    // {
-    //     title: "Portfolio Website",
-    //     description:
-    //         "A beautiful, responsive portfolio template for developers and designers.",
-    //     image: "/portfolio-website-template-dark-minimal.jpg",
-    //     tags: ["React", "Framer Motion", "Tailwind"],
-    //     demo: "https://nguyenhanprofile.vercel.app",
-    //     github: "https://nguyenhanprofile.vercel.app",
-    // },
-    // {
-    //     title: "Weather Dashboard",
-    //     description:
-    //         "Real-time weather dashboard with location detection and 7-day forecast.",
-    //     image: "/weather-dashboard-app-interface-dark-theme.jpg",
-    //     tags: ["Vue.js", "Weather API", "Chart.js"],
-    //     demo: "https://demo.example.com",
-    //     github: "https://github.com/example/weather",
-    // },
-    // {
-    //     title: "Social Media Dashboard",
-    //     description:
-    //         "Unified dashboard for managing multiple social media accounts with analytics.",
-    //     image: "/social-media-analytics-dashboard-dark.png",
-    //     tags: ["Next.js", "OAuth", "Recharts"],
-    //     demo: "https://demo.example.com",
-    //     github: "https://github.com/example/social",
-    // },
+    {
+        title: "Portfolio Website",
+        description:
+            "A beautiful, responsive portfolio template for developers and designers.",
+        image: "/portfolio-website-template-dark-minimal.jpg",
+        tags: ["React", "Framer Motion", "Tailwind"],
+        demo: "https://profile.nguyenvanhan.io.vn",
+        github: "https://github.com/NguyenHan166/myprofilecode",
+    },
+    {
+        title: "Menu Banhmyvaxoi Ngọc",
+        description:
+            "A menu management system for Banhmyvaxoi Ngọc restaurant.",
+        image: "/menungoc.png",
+        tags: ["NextJs", "Google Sheet", "Tailwind"],
+        demo: "https://menu.banhmivaxoingoc.io.vn",
+        github: "https://github.com/NguyenHan166/menu-banhmyxoingoc",
+    },
+    {
+        title: "Personal Cloud Storage",
+        description:
+            " Build a customized cloud for individuals with functions similar to google drive and support many tools such as qr gen, get social network uid, check cold penalties",
+        image: "/social-media-analytics-dashboard-dark.png",
+        tags: ["Next.js", "NestJS", "PostgreSQL", "Redis", "Tailwind"],
+        demo: "https://github.com/NguyenHan166/my-cloud",
+        github: "https://github.com/NguyenHan166/my-cloud",
+    },
 ];
 
 export function ProjectsSection() {
