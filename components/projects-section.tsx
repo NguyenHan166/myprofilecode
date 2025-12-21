@@ -28,6 +28,15 @@ const projects = [
         github: "https://github.com/NguyenHan166/web-ai-photo",
     },
     {
+        title: "Personal Cloud Storage",
+        description:
+            " Build a customized cloud for individuals with functions similar to google drive and support many tools such as qr gen, get social network uid, check cold penalties",
+        image: "/image.png",
+        tags: ["Next.js", "NestJS", "PostgreSQL", "Redis", "Tailwind"],
+        demo: "https://cloudhan.nguyenvanhan.io.vn",
+        github: "https://github.com/NguyenHan166/my-cloud",
+    },
+    {
         title: "Health Care System",
         description:
             "A comprehensive health care management system for clinics and hospitals to streamline patient care and administrative tasks.",
@@ -53,15 +62,6 @@ const projects = [
         tags: ["NextJs", "Google Sheet", "Tailwind"],
         demo: "https://menu.banhmivaxoingoc.io.vn",
         github: "https://github.com/NguyenHan166/menu-banhmyxoingoc",
-    },
-    {
-        title: "Personal Cloud Storage",
-        description:
-            " Build a customized cloud for individuals with functions similar to google drive and support many tools such as qr gen, get social network uid, check cold penalties",
-        image: "/social-media-analytics-dashboard-dark.png",
-        tags: ["Next.js", "NestJS", "PostgreSQL", "Redis", "Tailwind"],
-        demo: "https://github.com/NguyenHan166/my-cloud",
-        github: "https://github.com/NguyenHan166/my-cloud",
     },
 ];
 
