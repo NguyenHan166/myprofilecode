@@ -9,7 +9,7 @@ const experiences = [
     {
         company: "Công ty TNHH Tạ Thanh An Group",
         role: "Fullstack Engineer",
-        period: "05/2025 - 12/2025",
+        period: "05/2025 - 3/2025",
         description:
             "Participate in developing and publishing anti-phishing tools with more than 10,000 users. Participate in CRM development for companies and commercial versions",
         skills: ["React", "TypeScript", "NodeJS", "GraphQL"],
@@ -61,7 +61,7 @@ export function ExperienceSection() {
                                 "relative pl-12 mb-12 last:mb-0 transition-all duration-700",
                                 isInView
                                     ? "opacity-100 translate-x-0"
-                                    : "opacity-0 -translate-x-10"
+                                    : "opacity-0 -translate-x-10",
                             )}
                             style={{ transitionDelay: `${index * 200}ms` }}
                         >
