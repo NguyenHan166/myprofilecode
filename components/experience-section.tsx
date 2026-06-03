@@ -9,7 +9,7 @@ const experiences = [
     {
         company: "Công ty TNHH Tạ Thanh An Group",
         role: "Fullstack Engineer",
-        period: "05/2025 - 3/2025",
+        period: "05/2025 - now",
         description:
             "Participate in developing and publishing anti-phishing tools with more than 10,000 users. Participate in CRM development for companies and commercial versions",
         skills: ["React", "TypeScript", "NodeJS", "GraphQL"],
