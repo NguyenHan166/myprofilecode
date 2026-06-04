@@ -116,12 +116,12 @@ export function Header({ content, language, onLanguageToggle }: HeaderProps) {
 
             {/* Mobile Navigation */}
             {isMobileMenuOpen && (
-                <nav className="md:hidden glass mt-2 mx-4 rounded-lg p-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                <nav className="md:hidden mx-4 mt-3 rounded-lg border border-primary/20 bg-background/95 p-2 shadow-2xl shadow-primary/10 backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-300">
                     {content.navLinks.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
-                            className="block py-3 text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+                            className="block rounded-md px-4 py-3.5 text-sm font-medium text-foreground/90 transition-colors duration-300 hover:bg-primary/10 hover:text-primary"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {link.label}
