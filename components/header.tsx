@@ -5,19 +5,21 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { languageLabels, type Language } from "@/lib/i18n";
 
-const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#education", label: "Education" },
-    { href: "#experience", label: "Experience" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#gallery", label: "Gallery" },
-    { href: "#contact", label: "Contact" },
-];
+type HeaderContent = {
+    logo: string;
+    navLinks: ReadonlyArray<{ href: string; label: string }>;
+    languageToggleLabel: string;
+};
 
-export function Header() {
+type HeaderProps = {
+    content: HeaderContent;
+    language: Language;
+    onLanguageToggle: () => void;
+};
+
+export function Header({ content, language, onLanguageToggle }: HeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -38,12 +40,12 @@ export function Header() {
         >
             <div className="container mx-auto px-4 flex items-center justify-between">
                 <Link href="#home" className="text-xl font-bold text-primary">
-                    Home<span className="text-foreground">.</span>
+                    {content.logo}<span className="text-foreground">.</span>
                 </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-8">
-                    {navLinks.map((link) => (
+                    {content.navLinks.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
@@ -54,21 +56,68 @@ export function Header() {
                     ))}
                 </nav>
 
-                {/* Mobile Menu Button */}
-                <Button
-                    variant="ghost"
-                    size="icon"
-                    className="md:hidden"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </Button>
+                <div className="flex items-center gap-2">
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        className="relative h-9 w-24 overflow-hidden rounded-full border border-border bg-background/50 p-1 text-xs font-semibold text-muted-foreground hover:bg-background/70"
+                        onClick={onLanguageToggle}
+                        aria-label={content.languageToggleLabel}
+                        aria-pressed={language === "vi"}
+                    >
+                        <span
+                            className={cn(
+                                "absolute left-1 top-1 h-7 w-11 rounded-full bg-primary shadow-sm transition-transform duration-300 ease-out",
+                                language === "vi"
+                                    ? "translate-x-11"
+                                    : "translate-x-0"
+                            )}
+                        />
+                        <span className="relative z-10 grid w-full grid-cols-2">
+                            <span
+                                className={cn(
+                                    "flex h-7 items-center justify-center transition-colors duration-300",
+                                    language === "en"
+                                        ? "text-primary-foreground"
+                                        : "text-muted-foreground"
+                                )}
+                            >
+                                {languageLabels.en}
+                            </span>
+                            <span
+                                className={cn(
+                                    "flex h-7 items-center justify-center transition-colors duration-300",
+                                    language === "vi"
+                                        ? "text-primary-foreground"
+                                        : "text-muted-foreground"
+                                )}
+                            >
+                                {languageLabels.vi}
+                            </span>
+                        </span>
+                    </Button>
+
+                    {/* Mobile Menu Button */}
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="md:hidden"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {isMobileMenuOpen ? (
+                            <X size={24} />
+                        ) : (
+                            <Menu size={24} />
+                        )}
+                    </Button>
+                </div>
             </div>
 
             {/* Mobile Navigation */}
             {isMobileMenuOpen && (
                 <nav className="md:hidden glass mt-2 mx-4 rounded-lg p-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                    {navLinks.map((link) => (
+                    {content.navLinks.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}

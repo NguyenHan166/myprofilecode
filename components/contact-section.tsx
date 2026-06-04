@@ -14,25 +14,52 @@ import { SocialLinks } from "@/components/social-links";
 const contactInfo = [
     {
         icon: Mail,
-        label: "Email",
+        labelKey: "email",
         value: "nvhan166@gmail.com",
         href: "mailto:nvhan166@gmail.com",
     },
     {
         icon: Phone,
-        label: "Phone",
+        labelKey: "phone",
         value: "+84 0357516001",
         href: "tel:+840357516001",
     },
     {
         icon: MapPin,
-        label: "Location",
+        labelKey: "location",
         value: "Hà Nội, Vietnam",
         href: "#",
     },
-];
+] as const;
 
-export function ContactSection() {
+type ContactContent = {
+    eyebrow: string;
+    title: string;
+    description: string;
+    infoTitle: string;
+    followTitle: string;
+    labels: {
+        email: string;
+        phone: string;
+        location: string;
+        name: string;
+        message: string;
+    };
+    placeholders: {
+        name: string;
+        email: string;
+        message: string;
+    };
+    sending: string;
+    send: string;
+    success: string;
+};
+
+type ContactSectionProps = {
+    content: ContactContent;
+};
+
+export function ContactSection({ content }: ContactSectionProps) {
     const { ref, isInView } = useInView({ threshold: 0.2 });
     const [formData, setFormData] = useState({
         name: "",
@@ -48,7 +75,7 @@ export function ContactSection() {
         await new Promise((resolve) => setTimeout(resolve, 1000));
         setIsSubmitting(false);
         setFormData({ name: "", email: "", message: "" });
-        alert("Message sent successfully!");
+        alert(content.success);
     };
 
     return (
@@ -56,14 +83,13 @@ export function ContactSection() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-sm text-primary font-medium uppercase tracking-wider mb-2">
-                        Contact
+                        {content.eyebrow}
                     </h2>
                     <h3 className="text-3xl md:text-4xl font-bold text-balance">
-                        Get In Touch
+                        {content.title}
                     </h3>
                     <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-                        If you would like to discuss a project or just say hi,
-                        I&apos;m always down to chat.
+                        {content.description}
                     </p>
                 </div>
 
@@ -78,12 +104,12 @@ export function ContactSection() {
                         )}
                     >
                         <h4 className="text-xl font-semibold mb-6">
-                            Contact Information
+                            {content.infoTitle}
                         </h4>
                         <div className="space-y-4 mb-8">
                             {contactInfo.map((item, index) => (
                                 <a
-                                    key={item.label}
+                                    key={item.labelKey}
                                     href={item.href}
                                     className={cn(
                                         "flex items-center gap-4 p-4 glass rounded-xl hover:scale-[1.02] transition-all duration-300 group",
@@ -100,7 +126,7 @@ export function ContactSection() {
                                     </div>
                                     <div>
                                         <p className="text-sm text-muted-foreground">
-                                            {item.label}
+                                            {content.labels[item.labelKey]}
                                         </p>
                                         <p className="font-medium">
                                             {item.value}
@@ -113,7 +139,7 @@ export function ContactSection() {
                         {/* Social Links */}
                         <div>
                             <h5 className="text-sm font-semibold mb-4">
-                                Follow Me
+                                {content.followTitle}
                             </h5>
                             <SocialLinks />
                         </div>
@@ -137,11 +163,11 @@ export function ContactSection() {
                                     htmlFor="name"
                                     className="block text-sm font-medium mb-2"
                                 >
-                                    Name
+                                    {content.labels.name}
                                 </label>
                                 <Input
                                     id="name"
-                                    placeholder="Your name"
+                                    placeholder={content.placeholders.name}
                                     value={formData.name}
                                     onChange={(e) =>
                                         setFormData({
@@ -158,12 +184,12 @@ export function ContactSection() {
                                     htmlFor="email"
                                     className="block text-sm font-medium mb-2"
                                 >
-                                    Email
+                                    {content.labels.email}
                                 </label>
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="your@email.com"
+                                    placeholder={content.placeholders.email}
                                     value={formData.email}
                                     onChange={(e) =>
                                         setFormData({
@@ -180,11 +206,11 @@ export function ContactSection() {
                                     htmlFor="message"
                                     className="block text-sm font-medium mb-2"
                                 >
-                                    Message
+                                    {content.labels.message}
                                 </label>
                                 <Textarea
                                     id="message"
-                                    placeholder="Your message..."
+                                    placeholder={content.placeholders.message}
                                     rows={5}
                                     value={formData.message}
                                     onChange={(e) =>
@@ -204,11 +230,11 @@ export function ContactSection() {
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? (
-                                    "Sending..."
+                                    content.sending
                                 ) : (
                                     <>
                                         <Send className="w-4 h-4" />
-                                        Send Message
+                                        {content.send}
                                     </>
                                 )}
                             </Button>

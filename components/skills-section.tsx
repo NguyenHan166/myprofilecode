@@ -11,18 +11,20 @@ const hardSkills = [
     { name: "PostgreSQL", level: 75 },
 ];
 
-const softSkills = [
-    "Problem Solving",
-    "Communication",
-    "Team Leadership",
-    "Time Management",
-    "Creativity",
-    "Adaptability",
-    "Critical Thinking",
-    "Attention to Detail",
-];
+type SkillsContent = {
+    eyebrow: string;
+    title: string;
+    technicalTitle: string;
+    softTitle: string;
+    coreTitle: string;
+    softSkills: ReadonlyArray<string>;
+};
 
-export function SkillsSection() {
+type SkillsSectionProps = {
+    content: SkillsContent;
+};
+
+export function SkillsSection({ content }: SkillsSectionProps) {
     const { ref, isInView } = useInView({ threshold: 0.2 });
 
     return (
@@ -34,10 +36,10 @@ export function SkillsSection() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-sm text-primary font-medium uppercase tracking-wider mb-2">
-                        Skills
+                        {content.eyebrow}
                     </h2>
                     <h3 className="text-3xl md:text-4xl font-bold text-balance">
-                        What I&apos;m Good At
+                        {content.title}
                     </h3>
                 </div>
 
@@ -53,7 +55,7 @@ export function SkillsSection() {
                     >
                         <h4 className="text-xl font-semibold mb-6 flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-primary" />
-                            Technical Skills
+                            {content.technicalTitle}
                         </h4>
                         <div className="space-y-5">
                             {hardSkills.map((skill, index) => (
@@ -106,10 +108,10 @@ export function SkillsSection() {
                     >
                         <h4 className="text-xl font-semibold mb-6 flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-primary" />
-                            Soft Skills
+                            {content.softTitle}
                         </h4>
                         <div className="flex flex-wrap gap-3">
-                            {softSkills.map((skill, index) => (
+                            {content.softSkills.map((skill, index) => (
                                 <span
                                     key={skill}
                                     className={cn(
@@ -132,7 +134,7 @@ export function SkillsSection() {
                         {/* Additional Visual - Skill Radar */}
                         <div className="mt-8 p-6 glass rounded-xl">
                             <h5 className="text-sm font-semibold mb-4">
-                                Core Competencies
+                                {content.coreTitle}
                             </h5>
                             <div className="grid grid-cols-2 gap-4">
                                 {[

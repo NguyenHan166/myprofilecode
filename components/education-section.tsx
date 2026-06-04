@@ -4,23 +4,22 @@ import { useInView } from "@/hooks/use-in-view";
 import { GraduationCap, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const education = [
-    {
-        school: "Posts and Telecommunications Institute of Technology",
-        degree: "Information Technology Engineer",
-        year: "2021 - 2026",
-        description:
-            "Dean's List, GPA 3.9/4.0. Focus on web technologies and algorithms.",
-    },
-    {
-        school: "Trường Trung Học Phổ Thông A Hải Hậu",
-        // degree: "Bachelor of Science in Software Engineering",
-        year: "2018 - 2021",
-        description: "Complete the high school program with excellent grades",
-    },
-];
+type EducationContent = {
+    eyebrow: string;
+    title: string;
+    items: ReadonlyArray<{
+        school: string;
+        degree: string;
+        year: string;
+        description: string;
+    }>;
+};
 
-export function EducationSection() {
+type EducationSectionProps = {
+    content: EducationContent;
+};
+
+export function EducationSection({ content }: EducationSectionProps) {
     const { ref, isInView } = useInView({ threshold: 0.2 });
 
     return (
@@ -32,10 +31,10 @@ export function EducationSection() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-sm text-primary font-medium uppercase tracking-wider mb-2">
-                        Education
+                        {content.eyebrow}
                     </h2>
                     <h3 className="text-3xl md:text-4xl font-bold text-balance">
-                        My Academic Journey
+                        {content.title}
                     </h3>
                 </div>
 
@@ -44,7 +43,7 @@ export function EducationSection() {
                     {/* Timeline Line */}
                     <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-1/2" />
 
-                    {education.map((item, index) => (
+                    {content.items.map((item, index) => (
                         <div
                             key={item.school}
                             className={cn(

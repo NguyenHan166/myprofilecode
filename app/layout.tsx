@@ -20,7 +20,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="vi">
             <head>
                 <link rel="icon" href="/profile.jpg" type="image/jpg" />
             </head>

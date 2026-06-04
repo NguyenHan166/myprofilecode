@@ -8,64 +8,26 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
-const projects = [
-    {
-        title: "Uy Tín Mạng",
-        description:
-            "A Scammer Checking Platform helping users identify and avoid online scams effectively.",
-        image: "/uytinmang.png",
-        tags: ["Node.js", "React", "PostgreSQL"],
-        demo: "https://uytinmang.vn",
-        github: "https://uytinmang.vn",
-    },
-    {
-        title: "Web AI Photo Editor",
-        description:
-            "An AI-powered photo editing web application that allows users to enhance and transform images using advanced AI algorithms.",
-        image: "/webphoto.png",
-        tags: ["React", "Firebase", "Tailwind"],
-        demo: "https://web-ai-photo-production.up.railway.app",
-        github: "https://github.com/NguyenHan166/web-ai-photo",
-    },
-    {
-        title: "Personal Cloud Storage",
-        description:
-            " Build a customized cloud for individuals with functions similar to google drive and support many tools such as qr gen, get social network uid, check cold penalties",
-        image: "/image.png",
-        tags: ["Next.js", "NestJS", "PostgreSQL", "Redis", "Tailwind"],
-        demo: "https://cloudhan.nguyenvanhan.io.vn",
-        github: "https://github.com/NguyenHan166/my-cloud",
-    },
-    {
-        title: "Health Care System",
-        description:
-            "A comprehensive health care management system for clinics and hospitals to streamline patient care and administrative tasks.",
-        image: "/ai-chatbot-interface-modern-dark-theme.jpg",
-        tags: ["React", "OpenAI", "Django"],
-        demo: "https://github.com/NguyenHan166/healthcare-django",
-        github: "https://github.com/NguyenHan166/healthcare-django",
-    },
-    {
-        title: "Portfolio Website",
-        description:
-            "A beautiful, responsive portfolio template for developers and designers.",
-        image: "/portfolio-website-template-dark-minimal.jpg",
-        tags: ["React", "Framer Motion", "Tailwind"],
-        demo: "https://profile.nguyenvanhan.io.vn",
-        github: "https://github.com/NguyenHan166/myprofilecode",
-    },
-    {
-        title: "Menu Banhmyvaxoi Ngọc",
-        description:
-            "A menu management system for Banhmyvaxoi Ngọc restaurant.",
-        image: "/menungoc.png",
-        tags: ["NextJs", "Google Sheet", "Tailwind"],
-        demo: "https://menu.banhmivaxoingoc.io.vn",
-        github: "https://github.com/NguyenHan166/menu-banhmyxoingoc",
-    },
-];
+type ProjectsContent = {
+    eyebrow: string;
+    title: string;
+    demoLabel: string;
+    codeLabel: string;
+    items: ReadonlyArray<{
+        title: string;
+        description: string;
+        image: string;
+        tags: ReadonlyArray<string>;
+        demo: string;
+        github: string;
+    }>;
+};
 
-export function ProjectsSection() {
+type ProjectsSectionProps = {
+    content: ProjectsContent;
+};
+
+export function ProjectsSection({ content }: ProjectsSectionProps) {
     const { ref, isInView } = useInView({ threshold: 0.1 });
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -74,15 +36,15 @@ export function ProjectsSection() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-sm text-primary font-medium uppercase tracking-wider mb-2">
-                        Projects
+                        {content.eyebrow}
                     </h2>
                     <h3 className="text-3xl md:text-4xl font-bold text-balance">
-                        Featured Work
+                        {content.title}
                     </h3>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    {projects.map((project, index) => (
+                    {content.items.map((project, index) => (
                         <div
                             key={project.title}
                             className={cn(
@@ -118,7 +80,7 @@ export function ProjectsSection() {
                                             rel="noopener noreferrer"
                                         >
                                             <ExternalLink className="w-4 h-4 mr-2" />
-                                            Demo
+                                            {content.demoLabel}
                                         </a>
                                     </Button>
                                     <Button size="sm" variant="outline" asChild>
@@ -128,7 +90,7 @@ export function ProjectsSection() {
                                             rel="noopener noreferrer"
                                         >
                                             <Github className="w-4 h-4 mr-2" />
-                                            Code
+                                            {content.codeLabel}
                                         </a>
                                     </Button>
                                 </div>

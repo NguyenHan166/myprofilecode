@@ -1,36 +1,29 @@
 "use client";
 
 import { useInView } from "@/hooks/use-in-view";
-import { User, Target, Zap, Heart } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { Target } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const strengths = [
-    {
-        icon: Zap,
-        title: "Problem Solver",
-        description:
-            "I love tackling complex challenges and finding elegant solutions.",
-    },
-    {
-        icon: Heart,
-        title: "Passionate",
-        description:
-            "Deeply committed to creating meaningful digital experiences.",
-    },
-    {
-        icon: Target,
-        title: "Goal-Oriented",
-        description: "Focused on delivering results that exceed expectations.",
-    },
-    {
-        icon: User,
-        title: "Team Player",
-        description:
-            "Collaborative mindset with excellent communication skills.",
-    },
-];
+type AboutContent = {
+    eyebrow: string;
+    title: string;
+    paragraphs: ReadonlyArray<string>;
+    visionTitle: string;
+    vision: string;
+    strengthsTitle: string;
+    strengths: ReadonlyArray<{
+        icon: LucideIcon;
+        title: string;
+        description: string;
+    }>;
+};
 
-export function AboutSection() {
+type AboutSectionProps = {
+    content: AboutContent;
+};
+
+export function AboutSection({ content }: AboutSectionProps) {
     const { ref, isInView } = useInView({ threshold: 0.2 });
 
     return (
@@ -47,45 +40,25 @@ export function AboutSection() {
                         )}
                     >
                         <h2 className="text-sm text-primary font-medium uppercase tracking-wider mb-2">
-                            About Me
+                            {content.eyebrow}
                         </h2>
                         <h3 className="text-3xl md:text-4xl font-bold mb-6 text-balance">
-                            Back-end Engineer building reliable systems — with a
-                            front-end eye for UX and accessibility.
+                            {content.title}
                         </h3>
                         <div className="space-y-4 text-muted-foreground leading-relaxed">
-                            <p>
-                                I&apos;m a software engineer focused primarily
-                                on back-end development, building scalable,
-                                reliable services and APIs with a strong
-                                emphasis on performance, security, and
-                                maintainability. I enjoy designing clean
-                                architectures, data models, and integrations
-                                that help products ship faster and run smoother.
-                            </p>
-                            <p>
-                                Alongside back-end work, I bring a front-end
-                                sensibility—accessibility, responsive UI, and
-                                pixel-level polish—so the systems I build don't
-                                just work well, they feel great to use.
-                            </p>
-                            <p>
-                                Outside of work, I explore new technologies,
-                                contribute to open source, and spend time
-                                outdoors with friends and family.
-                            </p>
+                            {content.paragraphs.map((paragraph) => (
+                                <p key={paragraph}>{paragraph}</p>
+                            ))}
                         </div>
 
                         {/* Vision */}
                         <div className="mt-8 p-6 glass rounded-xl">
                             <h4 className="text-lg font-semibold mb-2 flex items-center gap-2">
                                 <Target className="w-5 h-5 text-primary" />
-                                My Vision
+                                {content.visionTitle}
                             </h4>
                             <p className="text-muted-foreground text-sm">
-                                Become a back-end specialist who builds
-                                high-impact products, bringing engineering rigor
-                                and user-centered thinking together.
+                                {content.vision}
                             </p>
                         </div>
                     </div>
@@ -100,10 +73,10 @@ export function AboutSection() {
                         )}
                     >
                         <h4 className="text-lg font-semibold mb-6">
-                            My Strengths
+                            {content.strengthsTitle}
                         </h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {strengths.map((strength, index) => (
+                            {content.strengths.map((strength, index) => (
                                 <div
                                     key={strength.title}
                                     className={cn(

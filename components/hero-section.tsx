@@ -3,10 +3,24 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Download, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { SocialLinks } from "@/components/social-links";
 
-export function HeroSection() {
+type HeroContent = {
+    intro: string;
+    name: string;
+    highlightedName: string;
+    role: string;
+    description: string;
+    contactCta: string;
+    imageAlt: string;
+};
+
+type HeroSectionProps = {
+    content: HeroContent;
+};
+
+export function HeroSection({ content }: HeroSectionProps) {
     const heroRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
@@ -43,7 +57,7 @@ export function HeroSection() {
                         <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden glass p-2 animate-pulse-glow">
                             <Image
                                 src="/profile.jpg"
-                                alt="Profile"
+                                alt={content.imageAlt}
                                 width={320}
                                 height={320}
                                 className="rounded-full object-cover w-full h-full"
@@ -60,20 +74,19 @@ export function HeroSection() {
                     {/* Hero Content */}
                     <div className="text-center lg:text-left max-w-2xl">
                         <p className="text-primary font-medium mb-2 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                            Hello, I&apos;m
+                            {content.intro}
                         </p>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100 text-balance">
-                            Hân <span className="text-primary">Nguyễn</span>
+                            {content.name}{" "}
+                            <span className="text-primary">
+                                {content.highlightedName}
+                            </span>
                         </h1>
                         <h2 className="text-xl md:text-2xl text-muted-foreground mb-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
-                            Full Stack Developer
+                            {content.role}
                         </h2>
                         <p className="text-muted-foreground leading-relaxed mb-8 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-300 text-pretty">
-                            Back-end engineer focused on building scalable
-                            services and APIs. I also craft accessible,
-                            pixel-perfect interfaces—so I can ship end-to-end
-                            experiences with both solid engineering and
-                            thoughtful UX.
+                            {content.description}
                         </p>
 
                         {/* CTA Buttons */}
@@ -90,7 +103,7 @@ export function HeroSection() {
                                 }}
                             >
                                 <Mail className="w-4 h-4 group-hover:animate-bounce" />
-                                Contact Me
+                                {content.contactCta}
                             </Button>
                             {/* <Button
                                 size="lg"

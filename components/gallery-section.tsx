@@ -7,36 +7,23 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-const photos = [
-    {
-        src: "/profile.jpg",
-        alt: "Outdoor portrait",
-    },
-    {
-        src: "/profile2.jpg",
-        alt: "Working in office",
-    },
-    {
-        src: "/3.jpg",
-        alt: "Speaking at conference",
-    },
-    {
-        src: "/24.jpg",
-        alt: "Team collaboration",
-    },
-    {
-        src: "/5.jpg",
-        alt: "Hiking adventure",
-    },
-    {
-        src: "/6.jpg",
-        alt: "Coffee shop moment",
-    },
-];
+type GalleryContent = {
+    eyebrow: string;
+    title: string;
+    photos: ReadonlyArray<{
+        src: string;
+        alt: string;
+    }>;
+};
 
-export function GallerySection() {
+type GallerySectionProps = {
+    content: GalleryContent;
+};
+
+export function GallerySection({ content }: GallerySectionProps) {
     const { ref, isInView } = useInView({ threshold: 0.1 });
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+    const photos = content.photos;
 
     const openLightbox = (index: number) => setSelectedIndex(index);
     const closeLightbox = () => setSelectedIndex(null);
@@ -64,10 +51,10 @@ export function GallerySection() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-sm text-primary font-medium uppercase tracking-wider mb-2">
-                        Gallery
+                        {content.eyebrow}
                     </h2>
                     <h3 className="text-3xl md:text-4xl font-bold text-balance">
-                        Moments & Memories
+                        {content.title}
                     </h3>
                 </div>
 

@@ -5,36 +5,24 @@ import { Briefcase, ExternalLink, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 
-const experiences = [
-    {
-        company: "Công ty TNHH Tạ Thanh An Group",
-        role: "Fullstack Engineer",
-        period: "05/2025 - now",
-        description:
-            "Participate in developing and publishing anti-phishing tools with more than 10,000 users. Participate in CRM development for companies and commercial versions",
-        skills: ["React", "TypeScript", "NodeJS", "GraphQL"],
-        link: "https://uytinmang.vn",
-    },
-    {
-        company: "FPT Software",
-        role: "Full Stack Developer",
-        period: "04/2024 - 07/2024",
-        description: "Lead backend development for intern-level applications. ",
-        skills: ["Springboot", "Node.js", "PostgreSQL", "AWS"],
-        link: "https://startupxyz.example.com",
-    },
-    // {
-    //     company: "Digital Agency Co",
-    //     role: "Junior Developer",
-    //     period: "2018 - 2020",
-    //     description:
-    //         "Developed responsive websites for various clients across different industries. Gained extensive experience in modern CSS and JavaScript.",
-    //     skills: ["JavaScript", "CSS", "WordPress", "PHP"],
-    //     link: "https://digitalagency.example.com",
-    // },
-];
+type ExperienceContent = {
+    eyebrow: string;
+    title: string;
+    items: ReadonlyArray<{
+        company: string;
+        role: string;
+        period: string;
+        description: string;
+        skills: ReadonlyArray<string>;
+        link: string;
+    }>;
+};
 
-export function ExperienceSection() {
+type ExperienceSectionProps = {
+    content: ExperienceContent;
+};
+
+export function ExperienceSection({ content }: ExperienceSectionProps) {
     const { ref, isInView } = useInView({ threshold: 0.2 });
 
     return (
@@ -42,10 +30,10 @@ export function ExperienceSection() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-sm text-primary font-medium uppercase tracking-wider mb-2">
-                        Experience
+                        {content.eyebrow}
                     </h2>
                     <h3 className="text-3xl md:text-4xl font-bold text-balance">
-                        My Professional Journey
+                        {content.title}
                     </h3>
                 </div>
 
@@ -54,7 +42,7 @@ export function ExperienceSection() {
                     {/* Timeline Line */}
                     <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-border" />
 
-                    {experiences.map((exp, index) => (
+                    {content.items.map((exp, index) => (
                         <div
                             key={exp.company}
                             className={cn(
