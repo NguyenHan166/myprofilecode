@@ -49,7 +49,7 @@ export function Header({ content, language, onLanguageToggle }: HeaderProps) {
                         <Link
                             key={link.href}
                             href={link.href}
-                            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+                            className="text-sm font-medium text-foreground/80 transition-colors duration-300 hover:text-primary"
                         >
                             {link.label}
                         </Link>

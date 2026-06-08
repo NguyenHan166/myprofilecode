@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { ScrollProgress } from "@/components/scroll-progress";
 import "./globals.css";
 
 // <CHANGE> Updated font to Inter for modern look
@@ -25,6 +26,7 @@ export default function RootLayout({
                 <link rel="icon" href="/profile.jpg" type="image/jpg" />
             </head>
             <body className={`font-sans antialiased`}>
+                <ScrollProgress />
                 {children}
                 <Analytics />
             </body>
