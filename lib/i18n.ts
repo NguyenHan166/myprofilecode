@@ -36,16 +36,14 @@ export const content = {
         },
         about: {
             eyebrow: "About Me",
-            title:
-                "Back-end Engineer building reliable systems with a front-end eye for UX and accessibility.",
+            title: "Back-end Engineer building reliable systems with a front-end eye for UX and accessibility.",
             paragraphs: [
                 "I'm a software engineer focused primarily on back-end development, building scalable, reliable services and APIs with a strong emphasis on performance, security, and maintainability. I enjoy designing clean architectures, data models, and integrations that help products ship faster and run smoother.",
                 "Alongside back-end work, I bring a front-end sensibility: accessibility, responsive UI, and pixel-level polish, so the systems I build do not just work well, they feel great to use.",
                 "Outside of work, I explore new technologies, contribute to open source, and spend time outdoors with friends and family.",
             ],
             visionTitle: "My Vision",
-            vision:
-                "Become a back-end specialist who builds high-impact products, bringing engineering rigor and user-centered thinking together.",
+            vision: "Become a back-end specialist who builds high-impact products, bringing engineering rigor and user-centered thinking together.",
             strengthsTitle: "My Strengths",
             strengths: [
                 {
@@ -151,20 +149,26 @@ export const content = {
                     github: "https://uytinmang.vn",
                 },
                 {
-                    title: "Web AI Photo Editor",
+                    title: "Music Desktop App",
                     description:
-                        "An AI-powered photo editing web application that allows users to enhance and transform images using advanced AI algorithms.",
-                    image: "/webphoto.png",
-                    tags: ["React", "Firebase", "Tailwind"],
-                    demo: "https://web-ai-photo-production.up.railway.app",
-                    github: "https://github.com/NguyenHan166/web-ai-photo",
+                        "A desktop application for managing and playing music with a modern interface.",
+                    image: "/musicapp.png",
+                    tags: ["Electron", "React", "Node.js"],
+                    demo: "https://github.com/NguyenHan166/music-desktop-app-han-music",
+                    github: "https://github.com/NguyenHan166/music-desktop-app-han-music",
                 },
                 {
                     title: "Personal Cloud Storage",
                     description:
                         "A customized personal cloud with Google Drive-like storage and utility tools such as QR generation, social network UID lookup, and cold penalty checking.",
                     image: "/image.png",
-                    tags: ["Next.js", "NestJS", "PostgreSQL", "Redis", "Tailwind"],
+                    tags: [
+                        "Next.js",
+                        "NestJS",
+                        "PostgreSQL",
+                        "Redis",
+                        "Tailwind",
+                    ],
                     demo: "https://cloudhan.nguyenvanhan.io.vn",
                     github: "https://github.com/NguyenHan166/my-cloud",
                 },
@@ -270,16 +274,14 @@ export const content = {
         },
         about: {
             eyebrow: "Giới thiệu",
-            title:
-                "Kỹ sư back-end xây dựng hệ thống ổn định, đồng thời quan tâm đến UX và khả năng tiếp cận ở front-end.",
+            title: "Kỹ sư back-end xây dựng hệ thống ổn định, đồng thời quan tâm đến UX và khả năng tiếp cận ở front-end.",
             paragraphs: [
                 "Tôi là kỹ sư phần mềm tập trung chủ yếu vào phát triển back-end, xây dựng các dịch vụ và API có khả năng mở rộng, ổn định, chú trọng hiệu năng, bảo mật và khả năng bảo trì. Tôi thích thiết kế kiến trúc rõ ràng, mô hình dữ liệu hợp lý và các tích hợp giúp sản phẩm ra mắt nhanh hơn, vận hành mượt hơn.",
                 "Bên cạnh back-end, tôi cũng có tư duy front-end về khả năng tiếp cận, giao diện responsive và độ hoàn thiện ở từng chi tiết, để hệ thống không chỉ chạy tốt mà còn dễ chịu khi sử dụng.",
                 "Ngoài công việc, tôi tìm hiểu công nghệ mới, đóng góp cho mã nguồn mở và dành thời gian ngoài trời cùng bạn bè, gia đình.",
             ],
             visionTitle: "Định hướng",
-            vision:
-                "Trở thành chuyên gia back-end xây dựng các sản phẩm có tác động cao, kết hợp tư duy kỹ thuật chặt chẽ với góc nhìn lấy người dùng làm trung tâm.",
+            vision: "Trở thành chuyên gia back-end xây dựng các sản phẩm có tác động cao, kết hợp tư duy kỹ thuật chặt chẽ với góc nhìn lấy người dùng làm trung tâm.",
             strengthsTitle: "Thế mạnh",
             strengths: [
                 {
@@ -385,20 +387,26 @@ export const content = {
                     github: "https://uytinmang.vn",
                 },
                 {
-                    title: "Web AI Photo Editor",
+                    title: "Music Desktop App",
                     description:
-                        "Ứng dụng chỉnh sửa ảnh bằng AI, cho phép người dùng nâng cấp và biến đổi hình ảnh bằng các thuật toán AI.",
-                    image: "/webphoto.png",
-                    tags: ["React", "Firebase", "Tailwind"],
-                    demo: "https://web-ai-photo-production.up.railway.app",
-                    github: "https://github.com/NguyenHan166/web-ai-photo",
+                        "Ứng dụng nghe nhạc Youtube trên máy tính, cho phép người dùng thưởng thức âm nhạc mọi lúc, mọi nơi.",
+                    image: "/musicapp.png",
+                    tags: ["React", "Node.js", "Electron"],
+                    demo: "https://github.com/NguyenHan166/music-desktop-app-han-music",
+                    github: "https://github.com/NguyenHan166/music-desktop-app-han-music",
                 },
                 {
                     title: "Personal Cloud Storage",
                     description:
                         "Hệ thống cloud cá nhân với chức năng tương tự Google Drive, kèm các công cụ như tạo QR, lấy UID mạng xã hội và kiểm tra phạt nguội.",
                     image: "/image.png",
-                    tags: ["Next.js", "NestJS", "PostgreSQL", "Redis", "Tailwind"],
+                    tags: [
+                        "Next.js",
+                        "NestJS",
+                        "PostgreSQL",
+                        "Redis",
+                        "Tailwind",
+                    ],
                     demo: "https://cloudhan.nguyenvanhan.io.vn",
                     github: "https://github.com/NguyenHan166/my-cloud",
                 },
